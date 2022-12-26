@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.date_scheduling.user.repository.UserRepository">
+
+    <select id="findUserByLoginId" resultType="com.example.date_scheduling.user.entity.UserEntity">
+        select id, nickName, loginId, email, password
+        from tbl_user where loginId = #{loginId}
+    </select>
+
+    <select id = "existByLoginId" resultType="boolean">
+        select count(*) from tbl_user where loginId = #{loginId}
+    </select>
+
+    <select id = "findUserByEmail" resultType="com.example.date_scheduling.user.entity.UserEntity">
+        select id, nickName, loginId, email, password
+        from tbl_user where email = #{email}
+    </select>
+
+    <select id = "existByEmail" resultType="boolean">
+        select Count(*) from tbl_user where email = #{email}
+    </select>
+
+    <select id="existByNickName" resultType="boolean">
+        select Count(*) from tbl_user where nickName = #{nickName}
+    </select>
+
+    <insert id = "register">
+        insert into tbl_user (id, nickName, loginId, email, password) values
+        (#{id}, #{nickName}, #{loginId}, #{email}, #{password})
+    </insert>
+
+</mapper>
