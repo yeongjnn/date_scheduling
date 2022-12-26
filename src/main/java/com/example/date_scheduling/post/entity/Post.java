@@ -18,6 +18,11 @@ public class Post {
     private String content;     // 게시물 내용텍스트)
     private String image;       // 사진
     private Date regDate;       // 게시물 등록 시간
+    private Date modDate;        // 게시물 최종 수정 시간
+
+//    private String reply;       // 댓글
+//    private boolean like;       // 좋아요
+//    private boolean markUp;     // 북마크
 
     public Post() {
         this.postId = UUID.randomUUID().toString();
